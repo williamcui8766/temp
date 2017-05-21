@@ -1,0 +1,64 @@
+﻿
+@model  List<exportdemo.Models.order>
+@{
+    ViewBag.Title = "Index";
+    var list = ViewBag.list; //ViewData["list"];// 
+}
+<style>
+    tr, td {
+        width: 200px;
+        height: 30px;
+     
+    }
+</style>
+
+<h2>Index</h2>
+<table id="table" border="1">
+    <tbody>
+
+        @foreach (var item in list)
+            {
+            <tr>
+                <td>
+                    <div> @item.Name </div>
+                </td>
+                <td>
+                    <div> @item.OrderId </div>
+                </td>
+                <td>
+                    <div> @item.Phone </div>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+@{ 
+@Html.Partial("table", ViewData["list"]);
+
+
+}
+<input type="button" id="export" value="export" />
+<a href="@Url.Action("Export", "show")?id=113" id="ttt">aaa</a>
+<script src="~/Scripts/jquery-1.10.2.js">
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        console.log("444");
+        $("#export").click(
+        function () {
+            console.log("ssssss");
+            $.post("@Url.Action("ExportToExcel", "show")", {},function(){});
+        }
+        );
+
+    });
+
+</script>
+
+
+
+

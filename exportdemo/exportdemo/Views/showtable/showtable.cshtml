@@ -1,0 +1,24 @@
+﻿
+@using exportdemo.Models;
+@model List<order>
+<table id="table" border="1">
+    <tbody>
+
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    <div> @item.Name </div>
+                </td>
+                <td>
+                    <div> @item.OrderId </div>
+                </td>
+                <td>
+                    <div> @item.Phone </div>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
